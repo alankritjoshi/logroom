@@ -36,8 +36,10 @@ gencert:
 
 $(CONFIG_PATH)/model.conf:
 	cp test/model.conf $(CONFIG_PATH)/model.conf
+
 $(CONFIG_PATH)/policy.csv:
-	cp test/model.conf $(CONFIG_PATH)/policy.csv
+	cp test/policy.csv $(CONFIG_PATH)/policy.csv
+
 .PHONY: test
 test: $(CONFIG_PATH)/policy.csv $(CONFIG_PATH)/model.conf
 	go test -race ./...
@@ -46,7 +48,7 @@ test: $(CONFIG_PATH)/policy.csv $(CONFIG_PATH)/model.conf
 compile:
 	protoc api/v1/*.proto \
 		--go_out=. \
-		--go-grpc_out=.\
+		--go-grpc_out=. \
 		--go_opt=paths=source_relative \
 		--go-grpc_opt=paths=source_relative \
 		--proto_path=.
