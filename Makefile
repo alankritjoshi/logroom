@@ -52,3 +52,7 @@ compile:
 		--go_opt=paths=source_relative \
 		--go-grpc_opt=paths=source_relative \
 		--proto_path=.
+
+.PHONY: clean
+clean:
+	rm -rf $(CONFIG_PATH)
