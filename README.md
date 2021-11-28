@@ -1,2 +1,2 @@
 # logroom
-Log Room
+Log Room: A distributed log service
