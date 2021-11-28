@@ -1,4 +1,4 @@
-CONFIG_PATH=${HOME}/.proglog/
+CONFIG_PATH=${HOME}/.logroom/
 
 .PHONY: init
 init:
@@ -56,3 +56,8 @@ compile:
 .PHONY: clean
 clean:
 	rm -rf $(CONFIG_PATH)
+
+TAG ?= 0.0.1
+
+build-docker:
+	docker build -t github.com/alankritjoshi/logroom:${TAG} .
